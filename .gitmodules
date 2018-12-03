@@ -1,9 +1,0 @@
-[submodule "paas-webpage"]
-	path = paas-webpage
-	url = https://github.com/acdh-oeaw/paas-webpage
-[submodule "apis-core"]
-	path = apis-core
-	url = https://github.com/acdh-oeaw/apis-core
-[submodule "apis-settings"]
-	path = apis-settings
-	url = https://github.com/acdh-oeaw/apis-settings
