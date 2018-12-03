@@ -71,7 +71,7 @@
                                 <span class="caret"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'webpage:staticpage' template='about' %}">About project</a>
+                                <a class="dropdown-item" href="{% url 'webpage:staticpage' template='team' %}">Team</a>
                                 <a class="dropdown-item" href="{% url 'webpage:staticpage' template='imprint' %}">Imprint | Impressum</a>
                             </div>
                         </li>
@@ -137,13 +137,37 @@
                     <i class="far fa-comment"></i> CONTACT
                 </div>
                 <div class="row">
-                    <div class="col-md-2 pl-0">
-                        <a href="https://www.oeaw.ac.at/acdh/acdh-home/" target="_blank" rel="noopener" aria-label="ACDH">
-                            <img src="{% static 'webpage/img/acdh_logo.png' %}" alt="ACDH" title="Austrian Centre for Digital Humanities"/>
-                        </a>
+                    <div class="footer-widget col-lg-1 col-md-2 col-sm-2 col-xs-6 col-3">
+              <div class="textwidget custom-html-widget">
+                <a href="/"><img src="https://www.oeaw.ac.at/fileadmin/oeaw/institutstemplate/ikt/img/iktlogo_cd_3.png" class="image" alt="IKT Logo" title="IKT"></a>
+              </div>
+            </div><!-- .footer-widget -->
+            <div class="footer-widget col-lg-4 col-md-4 col-sm-6 col-9">
+              <div class="textwidget custom-html-widget">
+                <p>
+                 IKT
+                  <br>
+                  Institute of Culture Studies and Theatre History of the Academy of Sciences
+                  <br>
+                  Austrian Academy of Sciences
+                </p>
+                <p>
+                  Postgasse 7/4
+                  <br>
+                  1010 Vienna
+                </p>
+                <p>
+                  T: +43 1 51581-2200
+                  <br>
+                  E: <a href="mailto:ikt@oeaw.ac.at">ikt@oeaw.ac.at</a>
+                </p>
+              </div>
+            </div>
+                    <div class="footer-widget col-md-3">
+                        <img src="{% static 'webpage/img/partner_logo.png' %}" alt="Partner Logo" title="ACDH-OeAW"/>
                     </div>
-                    <div class="col-md-2 ml-auto">
-                        <img src="{% static 'webpage/img/partner_logo.png' %}" alt="Partner Logo" title="Partner Logo"/>
+                    <div class="footer-widget col-md-3">
+                        <img src="https://www.oeaw.ac.at/typo3conf/ext/oeaw_website/Resources/Public/Images/oeaw_logo_446x192.png" alt="OeAW" title="OeAW"/>
                     </div>
                 </div>
             </div>
