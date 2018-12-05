@@ -83,6 +83,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'webpage.webpage_content_processors.installed_apps',
                 'webpage.webpage_content_processors.is_dev_version',
+                'webpage.webpage_content_processors.get_db_name',
                 'apis_core.context_processors.custom_context_processors.add_entities',
                 'apis_core.context_processors.custom_context_processors.add_relations',
             ],
@@ -172,20 +173,37 @@ APIS_ENTITIES = {
                                 ('profession', {'label': 'Profession'}),
                                 ('collection', {'label': 'Collection'})]
                },
-    'Institution': {'search': ['name'],
-                    'list_filters': [('name', {'method': 'wildcard_filter', 'label': 'Name'})]},
-    'Work': {'search': ['name'],
-             'list_filters': [
-                ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
-                ('collection', {'label': 'Collection'}),
-            ]},
-    'Event': {'search': ['name'],
-              'list_filters': [('name', {'method': 'wildcard_filter', 'label': 'Name'})]},
+    'Institution': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
+            ('collection', {'label': 'Collection'}),
+            ('kind', {'label': 'Type'})
+        ]
+    },
+    'Work': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
+            ('collection', {'label': 'Collection'}),
+            ('kind', {'label': 'Type'}),
+        ]
+    },
+    'Event': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
+            ('collection', {'label': 'Collection'}),
+            ('kind', {'label': 'Type'}),
+            # ('start_date', {'label': 'Start Date'}),
+            # ('end_date', {'label': 'End Date'}),
+        ]
+    }
 }
 
 
-APIS_LIST_VIEWS_ALLOWED = True
-APIS_DETAIL_VIEWS_ALLOWED = True
+APIS_LIST_VIEWS_ALLOWED = False
+APIS_DETAIL_VIEWS_ALLOWED = False
 
 APIS_LIST_VIEW_TEMPLATE = "browsing/generic_list.html"
 APIS_DELETE_VIEW_TEMPLATE = "webpage/confirm_delete.html"
