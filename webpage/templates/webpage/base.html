@@ -86,6 +86,19 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APIS Visualisations
+                                <span class="caret"/>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'apis:apis_vis:heatmap_view' %}">Heatmap</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_vis:avg_members_view' %}">Anzahl aller/neuer Mitglieder</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_vis:avgage_view' %}">Durchschnittsalter aller/neuer Mitglieder</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_vis:inst_range_view' %}">Kommissionen</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_network_viz' %}">Netzwerk</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APIS Relations
                                 <span class="caret"/>
                             </a>
