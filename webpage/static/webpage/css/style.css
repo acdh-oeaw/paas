@@ -10,6 +10,10 @@ body {
     padding-top: 70px;
 }
 
+span.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 16px; }
+
 /*remove round corners everywhere*/
 /** {
   border-radius: 0 !important;
