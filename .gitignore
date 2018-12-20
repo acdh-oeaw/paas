@@ -39,3 +39,6 @@ pg_local.py
 /arche/data/fileList.json
 /apis_core
 /import_sitzungsprotokolle.ipynb
+bower_components
+linkurious.js
+/charts
