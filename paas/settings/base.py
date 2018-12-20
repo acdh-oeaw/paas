@@ -89,6 +89,8 @@ TEMPLATES = [
                 'webpage.webpage_content_processors.get_db_name',
                 'apis_core.context_processors.custom_context_processors.add_entities',
                 'apis_core.context_processors.custom_context_processors.add_relations',
+                'apis_core.context_processors.custom_context_processors.add_apis_settings',
+
             ],
         },
     },

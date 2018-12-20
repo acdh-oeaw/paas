@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^$', views.GenericWebpageView.as_view(), name="start"),
     url(r'^accounts/login/$', views.user_login, name='user_login'),
     url(r'^logout/$', views.user_logout, name='user_logout'),
+    url(r'^set_user_settings/$', views.set_user_settings, name='set_user_settings'),
     url(r'^(?P<template>[\w-]+)/$', views.GenericWebpageView.as_view(), name='staticpage'),
+
 ]

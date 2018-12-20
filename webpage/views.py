@@ -5,6 +5,8 @@ from django.template import RequestContext, loader
 from django.views.generic import TemplateView
 from django.contrib.auth import authenticate, login, logout
 from .forms import form_user_login
+from django.contrib.auth.decorators import login_required
+import json
 
 
 class GenericWebpageView(TemplateView):
@@ -51,3 +53,17 @@ def user_logout(request):
 
 def handler404(request, exception):
     return render(request, 'webpage/404-error.html', locals())
+
+
+@login_required
+def set_user_settings(request):
+    res = dict()
+    edit_views = request.GET.get('edit_views', False)
+    if edit_views == 'true':
+        edit_views = True
+    else:
+        edit_views = False
+    request.session['edit_views'] = edit_views
+    res['edit_views'] = edit_views
+    return HttpResponse(json.dumps(res), content_type='application/json')
+

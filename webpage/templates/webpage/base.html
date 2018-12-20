@@ -115,7 +115,12 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="nav-link" href="{% url 'webpage:user_logout' %}">Log-Out</a>
+                      <div class="form-check" style="padding-left: 20px">
+                        <input type="checkbox" class="form-check-input" id="check_edit_views" {% if  request.session.edit_views %}checked{% endif %}>
+                        <label class="form-check-label" for="ckeck_edit_views">Use edit views</label>
+                      </div>
                         </div>
+
                     </li>
                     {% else %}
                     <li class="nav-item dropdown ml-auto">
@@ -208,6 +213,22 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 $.apScrollTop({'onInit': function(evt) {console.log('apScrollTop: init');}});
+		                    $('#check_edit_views').on('change', function(){
+                  var edit_views = $('#check_edit_views').prop('checked');
+					    $.ajax({
+                    url: "{% url 'webpage:set_user_settings' %}",
+                    data: {'edit_views': edit_views},
+		    dataType: 'json',
+                    success: function(data){
+                      if (data.edit_views) {
+                        $('#check_edit_views').prop('checked', true)
+                      } else {
+                        $('#check_edit_views').prop('checked', false)
+                      }
+                    }
+                  })
+                });
+
             });
         </script>
         {% endblock %}
