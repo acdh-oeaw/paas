@@ -2,15 +2,14 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'PAAS',
+    'title': 'MPR',
     'author': 'Matthias Schlögl, Peter Andorfer',
-    'subtitle': 'Prosopography of the Members of the Austrian Academy of Sciences 1847–2022',
-    'description': 'PAAS is a web application to collect, analyze and evaluate prosopographical\
-    and biographical data of the approximately 3000 members of the\
-    Austrian Academy of Sciences 1847–2022.',
-    'github': 'https://github.com/acdh-oeaw/paas',
-    'purpose_de': 'Ziel von PAAS ist die Publikation von Forschungsdaten.',
-    'purpose_en': 'The purpose of PAAS is the publication of research data.',
+    'subtitle': 'Entities of the "Ministerratsprotokolle"',
+    'description': 'Entity store of the digital edition of the \
+    "Ministerratsprotokolle"',
+    'github': 'https://github.com/acdh-oeaw/apis-core',
+    'purpose_de': '',
+    'purpose_en': '',
     'version': '0.0.1',
     'matomo_id': '23',
     'matomo_url': '//matomo.acdh.oeaw.ac.at/',
