@@ -161,6 +161,32 @@ APIS_ALTERNATE_NAMES = [
     'weitere Namensform'
   ]
 
+APIS_RELATIONS_FILTER_EXCLUDE = [
+    'uri',
+    'tempentityclass',
+    'user', '__id',
+    'source',
+    'label',
+    'temp_entity',
+    'collection__',
+    '_ptr',
+    'baseclass',
+    'id',
+    'written',
+    'relation_type__description',
+    'relation_type__parent_class',
+    'relation_type__status',
+    'relation_type__vocab_name',
+    'relation_type__name_reverse',
+    '__text',
+]
+
+APIS_RELATIONS = {
+    'PersonPlace': {
+        'exclude': ['name']
+    }
+}
+
 APIS_ENTITIES = {
     'Place': {'search': ['name'],
               'list_filters': [
