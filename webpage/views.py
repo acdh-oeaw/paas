@@ -1,12 +1,14 @@
+from copy import deepcopy
+
 from django.conf import settings
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
 from django.views.generic import TemplateView
 from django.contrib.auth import authenticate, login, logout
-from .forms import form_user_login
-from django.contrib.auth.decorators import login_required
-import json
+
+from . forms import form_user_login
+from . metadata import PROJECT_METADATA as PM
 
 
 class GenericWebpageView(TemplateView):
@@ -55,15 +57,19 @@ def handler404(request, exception):
     return render(request, 'webpage/404-error.html', locals())
 
 
-@login_required
-def set_user_settings(request):
-    res = dict()
-    edit_views = request.GET.get('edit_views', False)
-    if edit_views == 'true':
-        edit_views = True
-    else:
-        edit_views = False
-    request.session['edit_views'] = edit_views
-    res['edit_views'] = edit_views
-    return HttpResponse(json.dumps(res), content_type='application/json')
+def project_info(request):
 
+    """
+    returns a dict providing metadata about the current project
+    """
+
+    info_dict = deepcopy(PM)
+
+    if request.user.is_authenticated:
+        pass
+    else:
+        del info_dict['matomo_id']
+        del info_dict['matomo_url']
+    info_dict['base_tech'] = 'django'
+    info_dict['framework'] = 'djangobaseproject'
+    return JsonResponse(info_dict)
