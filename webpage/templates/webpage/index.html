@@ -4,10 +4,9 @@
 {% load webpage_extras %}
 {% block content %}
 
-<div class="jumbotron" style="min-height: 400px; padding:0; background-image: url({% static 'webpage/img/project_background.jpg' %})">
+<div class="jumbotron" style="min-height: 400px; padding:0; background-image: url({% static 'webpage/img/project_background.jpg' %})" title="Image (c) Maren Jeleff Photography">
 </div>
 <div class="container">
-
         <div class="card card-index">
             <div class="card-body">
                 <h1 class="text-center title-index">
@@ -18,8 +17,8 @@
                 </p>
                 <hr class="hr-index"/>
                 <p class="text-justify">
-                Text to come
-		</p>
+                    {% projects_metadata 'description' %}
+		        </p>
                 <div class="text-right">
                     <a href="/apis/entities/entity/person/list/" class="btn btn-lg btn-index pulse" class="pull-right">
                     <b><i class="fa fa-angle-right"></i></b>&nbsp;&nbsp;explore
