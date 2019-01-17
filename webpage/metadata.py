@@ -10,7 +10,7 @@ PROJECT_METADATA = {
     'purpose_de': '',
     'purpose_en': '',
     'version': '0.0.1',
-    'matomo_id': '23',
+    'matomo_id': '97',
     'matomo_url': '//matomo.acdh.oeaw.ac.at/',
     'imprint': '/imprint',
     'social_media': [
