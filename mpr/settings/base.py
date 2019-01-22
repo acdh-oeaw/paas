@@ -198,17 +198,18 @@ APIS_ENTITIES = {
             'lat', 'lng', 'part_of'
         ],
         'list_filters': [
-                ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
-                ('collection', {'label': 'Collection'})
-            ]
-        },
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
+            ('status', {'method': 'wildcard_filter', 'label': 'Status'}),
+            ('collection', {'label': 'Collection'})
+        ]
+    },
     'Person': {
         'search': ['name', 'first_name'],
         'form_order': ['first_name', 'name'],
         'table_fields': ['name', 'first_name', 'start_date', 'end_date'],
         'additional_cols': [
-            'profession', 'gender', 'merge'
-        ],
+                   'profession', 'gender', 'merge'
+           ],
         'list_filters': [
             ('name', {'method': 'name_label_filter', 'label': 'Name complete'}),
             ('first_name', {'method': 'wildcard_filter', 'label': 'Firstname'}),
@@ -216,34 +217,30 @@ APIS_ENTITIES = {
             ('start_date', {'label': 'Date of Birth'}),
             ('end_date', {'label': 'Date of Death'}),
             ('profession', {'label': 'Profession'}),
-            ('collection', {'label': 'Collection'})]
-        },
+            ('collection', {'label': 'Collection'})
+        ]
+    },
     'Institution': {
         'search': ['name'],
         'list_filters': [
             ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
-            ('collection', {'label': 'Collection'}),
-            ('kind', {'label': 'Type'})
+            ('start_date', {'label': 'Date of foundation'}),
+            ('end_date', {'label': 'Date of termination'}),
+            ('collection', {'label': 'Collection'})
         ]
     },
     'Work': {
         'search': ['name'],
         'list_filters': [
-            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
-            ('collection', {'label': 'Collection'}),
-            ('kind', {'label': 'Type'}),
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
         ]
     },
     'Event': {
         'search': ['name'],
         'list_filters': [
-            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
-            ('collection', {'label': 'Collection'}),
-            ('kind', {'label': 'Type'}),
-            # ('start_date', {'label': 'Start Date'}),
-            # ('end_date', {'label': 'End Date'}),
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
         ]
-    }
+    },
 }
 
 
