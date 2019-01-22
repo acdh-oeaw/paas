@@ -104,6 +104,16 @@
                                 {% endfor %}
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">add Entities
+                                <span class="caret"/>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for ent in entities_list %}
+                                    <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_create_view' ent %}">{{ent|title}}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown ml-auto">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

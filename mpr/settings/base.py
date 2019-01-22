@@ -187,23 +187,37 @@ APIS_RELATIONS = {
     }
 }
 
+
 APIS_ENTITIES = {
-    'Place': {'search': ['name'],
-              'list_filters': [
+    'Place': {
+        'search': ['name'],
+        'table_fields': [
+            'name',
+        ],
+        'additional_cols': [
+            'lat', 'lng', 'part_of'
+        ],
+        'list_filters': [
                 ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
                 ('collection', {'label': 'Collection'})
-            ]},
-    'Person': {'search': ['name', 'first_name'],
-               'form_order': ['first_name', 'name'],
-               'table_fields': ['name', 'first_name', 'start_date', 'end_date', 'profession'],
-               'list_filters': [('name', {'method': 'name_label_filter', 'label': 'Name complete'}),
-                                ('first_name', {'method': 'wildcard_filter', 'label': 'Firstname'}),
-                                ('gender', {'label': 'Gender'}),
-                                ('start_date', {'label': 'Date of Birth'}),
-                                ('end_date', {'label': 'Date of Death'}),
-                                ('profession', {'label': 'Profession'}),
-                                ('collection', {'label': 'Collection'})]
-               },
+            ]
+        },
+    'Person': {
+        'search': ['name', 'first_name'],
+        'form_order': ['first_name', 'name'],
+        'table_fields': ['name', 'first_name', 'start_date', 'end_date'],
+        'additional_cols': [
+            'profession', 'gender', 'merge'
+        ],
+        'list_filters': [
+            ('name', {'method': 'name_label_filter', 'label': 'Name complete'}),
+            ('first_name', {'method': 'wildcard_filter', 'label': 'Firstname'}),
+            ('gender', {'label': 'Gender'}),
+            ('start_date', {'label': 'Date of Birth'}),
+            ('end_date', {'label': 'Date of Death'}),
+            ('profession', {'label': 'Profession'}),
+            ('collection', {'label': 'Collection'})]
+        },
     'Institution': {
         'search': ['name'],
         'list_filters': [
