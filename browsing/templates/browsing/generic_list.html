@@ -117,7 +117,13 @@
                             {% endif %}
                         {% endwith %}
                         {% block table %}
-                            <table class="table" {% if table.attrs %} {{ table.attrs.as_html }}{% endif %}>
+    {% if enable_merge and user.is_authenticated %}
+        <form action="{% url 'apis_core:apis_entities:merge_objects' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="model_name" value="{{ entity }}"/>
+            <input type="hidden" name="app_name" value="{{ app_name }}"/>
+    {% endif %}
+                <table class="table" {% if table.attrs %} {{ table.attrs.as_html }}{% endif %}>
               {% block table.thead %}
               {% if table.show_header %}
               <thead>
@@ -165,6 +171,10 @@
               {% endif %}
               {% endblock table.tfoot %}
           </table>
+        {% if enable_merge and user.is_authenticated %}
+            <input type="submit" value="merge" />
+        {% endif %}
+    </form>
                         {% endblock table %}
                         {% block pagination.allpages %}
                             <div>

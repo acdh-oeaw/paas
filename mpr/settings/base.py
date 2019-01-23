@@ -204,6 +204,7 @@ APIS_ENTITIES = {
         ]
     },
     'Person': {
+        'merge': True,
         'search': ['name', 'first_name'],
         'form_order': ['first_name', 'name'],
         'table_fields': ['name', 'first_name', 'start_date', 'end_date'],
