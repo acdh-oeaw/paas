@@ -209,7 +209,7 @@ APIS_ENTITIES = {
         'form_order': ['first_name', 'name'],
         'table_fields': ['name', 'first_name', 'start_date', 'end_date'],
         'additional_cols': [
-                   'profession', 'gender', 'merge'
+                   'profession', 'gender',
            ],
         'list_filters': [
             ('name', {'method': 'name_label_filter', 'label': 'Name complete'}),
