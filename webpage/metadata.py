@@ -10,7 +10,7 @@ PROJECT_METADATA = {
     'production instance': 'https://mpr.acdh.oeaw.ac.at',
     'purpose_de': '',
     'purpose_en': '',
-    'version': '0.0.1',
+    'version': ['apis_core', 'django'],
     'matomo_id': '97',
     'matomo_url': '//matomo.acdh.oeaw.ac.at/',
     'imprint': '/imprint',
