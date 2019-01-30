@@ -93,12 +93,16 @@ def project_info(request):
         del info_dict["matomo_url"]
     info_dict["base_tech"] = "django"
     info_dict["framework"] = "apis"
-    info_dict["version webpage"] = "{}/commit/{}".format(
+    info_dict["last_commit"] = "{}/commit/{}".format(
         info_dict["github"],
         subprocess.check_output(["git", "describe", "--always"]).strip().decode("utf8"),
     )
-    for v in info_dict['version']:
-        mod = import_module(v)
-        info_dict["version {}".format(v)] = getattr(mod, '__version__', 'undefined')
-
+    if isinstance(info_dict['version'], list):
+        versions = []
+        for v in info_dict['version']:
+            mod = import_module(v)
+            version_info = "{}: {}".format(v, getattr(mod, '__version__', 'undefined'))
+            versions.append(version_info)
+        if len(versions) > 0:
+            info_dict["version"] = "|".join(versions)
     return JsonResponse(info_dict)
