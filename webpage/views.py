@@ -2,7 +2,7 @@ import json
 import subprocess
 from copy import deepcopy
 from importlib import import_module
-
+import re
 
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
@@ -97,8 +97,23 @@ def project_info(request):
         info_dict["github"],
         subprocess.check_output(["git", "describe", "--always"]).strip().decode("utf8"),
     )
+    vers = []
     for v in info_dict['version']:
+        res2 = dict()
         mod = import_module(v)
-        info_dict["version {}".format(v)] = getattr(mod, '__version__', 'undefined')
-
+        res2['library'] = v
+        res2["version"] = getattr(mod, '__version__', 'undefined')
+        try:
+            g_url = subprocess.check_output(["git", "config", "--get", "remote.origin.url"], cwd="{}/".format(v)).strip().decode('utf8')
+            git_url_t = re.match('^\w+@(.+):(.+)\.git$', g_url)
+            if git_url_t:
+                g_url = "https://{}/{}".format(git_url_t.group(1), git_url_t.group(2))
+            g_commit = subprocess.check_output(["git", "describe", "--always"], cwd="{}/".format(v)).strip().decode("utf8"),
+            if not isinstance(g_commit, str):
+                g_commit = g_commit[0]
+            res2["git"] = "{}/commit/{}".format(g_url, g_commit)
+        except Exception as e:
+            print(e)
+        vers.append(res2)
+    info_dict['version'] = vers
     return JsonResponse(info_dict)
