@@ -93,10 +93,13 @@ def project_info(request):
         del info_dict["matomo_url"]
     info_dict["base_tech"] = "django"
     info_dict["framework"] = "apis"
-    info_dict["last_commit"] = "{}/commit/{}".format(
-        info_dict["github"],
-        subprocess.check_output(["git", "describe", "--always"]).strip().decode("utf8"),
-    )
+    try:
+        info_dict["last_commit"] = "{}/commit/{}".format(
+            info_dict["github"],
+            subprocess.check_output(["git", "describe", "--always"]).strip().decode("utf8"),
+        )
+    except subprocess.CalledProcessError:
+        info_dict["last_commit"] = "an error occured"
     if isinstance(info_dict['version'], list):
         versions = []
         for v in info_dict['version']:
