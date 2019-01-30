@@ -1,16 +1,19 @@
 import json
 from copy import deepcopy
+import subprocess
+
 
 from django.conf import settings
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.template import RequestContext, loader
+from django.template import loader
 from django.views.generic import TemplateView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from . forms import form_user_login
 from . metadata import PROJECT_METADATA as PM
+import apis_core
 
 
 class GenericWebpageView(TemplateView):
@@ -87,4 +90,7 @@ def project_info(request):
         del info_dict['matomo_url']
     info_dict['base_tech'] = 'django'
     info_dict['framework'] = 'apis'
+    info_dict['version webpage'] = "{}/commit/{}".format(info_dict['github'], subprocess.check_output(["git", "describe", "--always"]).strip().decode('utf8'))
+    info_dict['version apis-core'] = apis_core.__version__
+
     return JsonResponse(info_dict)
