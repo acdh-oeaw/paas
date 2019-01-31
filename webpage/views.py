@@ -95,7 +95,7 @@ def project_info(request):
     info_dict["framework"] = "apis"
     info_dict["version webpage"] = "{}/commit/{}".format(
         info_dict["github"],
-        subprocess.check_output(["git", "describe", "--always"]).strip().decode("utf8"),
+        subprocess.check_output(["git", "describe", "--always"], cwd=settings.BASE_DIR).strip().decode("utf8"),
     )
     vers = []
     for v in info_dict['version']:
@@ -105,13 +105,13 @@ def project_info(request):
         res2["version"] = getattr(mod, '__version__', 'undefined')
         try:
             g_url = subprocess.check_output(
-                ["git", "config", "--get", "remote.origin.url"], cwd="{}/".format(v)
+                ["git", "config", "--get", "remote.origin.url"], cwd="{}/{}/".format(settings.BASE_DIR, v)
             ).strip().decode('utf8')
             git_url_t = re.match('^\w+@(.+):(.+)\.git$', g_url)
             if git_url_t:
                 g_url = "https://{}/{}".format(git_url_t.group(1), git_url_t.group(2))
             g_commit = subprocess.check_output(
-                ["git", "describe", "--always"], cwd="{}/".format(v)
+                ["git", "describe", "--always"], cwd="{}/{}/".format(settings.BASE_DIR, v)
             ).strip().decode("utf8"),
             if not isinstance(g_commit, str):
                 g_commit = g_commit[0]
