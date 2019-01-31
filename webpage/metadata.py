@@ -5,7 +5,7 @@ PROJECT_METADATA = {
     'title': 'MPR',
     'author': 'Matthias Schlögl, Peter Andorfer',
     'subtitle': 'Entities mentioned in the "Minutes of the council of the ministers of Austria and of the Austro-Hungarian Monarch"',
-    'description': """The edition 'Minutes of the Austrian Council of Ministers' was launched in 1967 by Friedrich Engel-Janosi in close cooperation with Hungarian historians. It is a full-text and annotated edition of the original documents kept in the Austrian State Archives (Haus-, Hof- und Staatsarchiv and Allgemeines Verwaltungsarchiv) (see fig. 1). The minutes record the sessions of the Council of Ministers founded in 1848 (1852−1861 the Conference of Ministers) of the Austrian Empire until the Austro-Hungarian Compromise of 1867 (1. Serie). The current web application considers itself as an 'Entity-Hub' of all Entities (Persons, Places, Institutions, Works and Evenets) mentioned in the Minutes.""",
+    'description': """The current web application considers itself as an 'Entity-Hub' of all Entities (Persons, Places, Institutions, Works and Evenets) mentioned in the Minutes.""",
     'github': 'https://github.com/acdh-oeaw/paas',
     'production instance': 'https://mpr.acdh.oeaw.ac.at',
     'purpose_de': '',
